@@ -23,12 +23,14 @@ app.use(express.json()); // Xử lý post dữ liệu từ các thằng như XML
 
 // template engine
 app.engine('hbs', engine({ extname: '.hbs' }));
-app.set('vie            w engine', 'hbs');
+app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resources/views'));
 
-//routes i  nit
-routes(         app);
+//routes init
+routes(app);
 
-                app.listen(port, () => {
-                    console.log(`               Example app listening on port ${port}`);
-                });
+
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+});
