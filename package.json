@@ -8,7 +8,6 @@
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss --output src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
-   
   },
   "repository": {
     "type": "git",
@@ -27,7 +26,7 @@
   },
   "homepage": "https://github.com/LightCode5794/nodejs_blog#readme",
   "lint-staged": {
-    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write \"src/**/*.{js,json,scss}\""
+    "src/**/*.{js,json,scss}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
   "husky": {
     "hooks": {
@@ -39,7 +38,7 @@
     "express-handlebars": "^7.0.2"
   },
   "devDependencies": {
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "morgan": "^1.10.0",
     "node-sass": "^8.0.0",
