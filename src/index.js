@@ -3,6 +3,10 @@ const path = require('path');
 const morgan = require('morgan');
 const { engine } = require('express-handlebars');
 const routes = require('./routes');
+const db = require('./config/db');
+
+//conect to db
+db.connect();
 
 const app = express();
 const port = 3000;
@@ -22,9 +26,18 @@ app.use(
 app.use(express.json()); // Xử lý post dữ liệu từ các thằng như XMLHttpRequest, fetch, axios,
 
 // template engine
-app.engine('hbs', engine({ extname: '.hbs' }));
+app.engine(
+    'hbs',
+    engine({
+        extname: '.hbs',
+        // Specify helpers which are only registered on this instance.
+        helpers: {
+            sum: (a, b) => a + b,
+        },
+    }),
+);
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 //routes init
 routes(app);
