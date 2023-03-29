@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const slug = require('mongoose-slug-generator');
+const slug = require('mongoose-slug-updater');
 
 mongoose.plugin(slug);
 
@@ -9,7 +9,6 @@ const ObjectId = Schema.ObjectId;
 
 const Course = new Schema(
     {
-        author: ObjectId,
         name: { type: String, default: '', maxLength: 255, required: true },
         description: { type: String, default: '', maxLength: 600 },
         image: { type: String, default: '', maxLength: 255 },

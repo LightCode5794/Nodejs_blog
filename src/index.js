@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const { engine } = require('express-handlebars');
 const routes = require('./routes');
 const db = require('./config/db');
+const methodOverride = require('method-override');
 
 //conect to db
 db.connect();
@@ -12,6 +13,9 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'));
 
 // HTTP logger
 app.use(morgan('combined'));
